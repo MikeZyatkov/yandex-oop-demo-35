@@ -1,6 +1,9 @@
+import TodoListItem from "./TodoListItem.js";
+
 class TodoList {
-    constructor(selector) {
+    constructor(selector, todos) {
         this._selector = selector;
+        this._todos = todos;
     }
 
     _getTemplate() {
@@ -11,7 +14,13 @@ class TodoList {
     }
 
     getView() {
-        return this._getTemplate();
+        this._element = this._getTemplate();
+        this._todos.forEach(title => {
+            const todo = new TodoListItem('.todo-item-template', title);
+            this._element.append(todo.getView());
+        })
+
+        return this._element;
     }
 }
 

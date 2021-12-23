@@ -76,6 +76,6 @@ const todos = [
 
 const todoSection = document.querySelector('.todos');
 
-const todoList = new TodoList('.todo-list-template');
+const todoList = new TodoList('.todo-list-template', todos);
 
 todoSection.append(todoList.getView());
