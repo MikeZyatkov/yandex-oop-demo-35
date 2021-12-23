@@ -1,4 +1,5 @@
 import TodoList from "./TodoList.js";
+import TodoListForm from "./TodoListForm.js";
 
 const todos = [
   'Сделать проектную работу',
@@ -77,5 +78,7 @@ const todos = [
 const todoSection = document.querySelector('.todos');
 
 const todoList = new TodoList('.todo-list-template', todos);
+const todoForm = new TodoListForm('.todo-list-form-template');
 
+todoSection.append(todoForm.getView());
 todoSection.append(todoList.getView());
