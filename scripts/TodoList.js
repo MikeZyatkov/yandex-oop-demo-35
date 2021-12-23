@@ -13,11 +13,15 @@ class TodoList {
             .cloneNode(true)
     }
 
+    addTodo = (title) => {
+        const todo = new TodoListItem('.todo-item-template', title);
+        this._element.append(todo.getView());
+    }
+
     getView() {
         this._element = this._getTemplate();
         this._todos.forEach(title => {
-            const todo = new TodoListItem('.todo-item-template', title);
-            this._element.append(todo.getView());
+            this.addTodo(title);
         })
 
         return this._element;
